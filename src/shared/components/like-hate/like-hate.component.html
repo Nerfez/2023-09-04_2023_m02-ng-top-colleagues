@@ -1,0 +1,4 @@
+<div class="button-group">
+    <button *ngIf="isScoreUp()" (click)="evtLiking(like)">J'aime</button>
+    <button *ngIf="isScoreDown()" (click)="evtLiking(hate)">Je déteste</button>
+</div>
