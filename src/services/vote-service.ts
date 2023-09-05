@@ -36,4 +36,32 @@ export class VoteService {
 
   constructor(private colleagueService: ColleagueService) { }
 
+  refresh(){
+    this.vote = [{
+        colleague: this.colleagueService.colleague[0],
+        vote: LikeHate.LIKE
+      },
+      {
+        colleague: this.colleagueService.colleague[1],
+        vote: LikeHate.LIKE
+      },
+      {
+        colleague: this.colleagueService.colleague[2],
+        vote: LikeHate.LIKE
+      },
+      {
+        colleague: this.colleagueService.colleague[3],
+        vote: LikeHate.LIKE
+      },
+      {
+        colleague: this.colleagueService.colleague[4],
+        vote: LikeHate.LIKE
+      },
+      {
+        colleague: this.colleagueService.colleague[5],
+        vote: LikeHate.LIKE
+      }
+      ];
+  }
+
 }
