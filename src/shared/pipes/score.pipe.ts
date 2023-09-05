@@ -6,7 +6,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ScorePipe implements PipeTransform {
 
   transform(value: unknown, ...args: unknown[]): unknown {
-    return value; //Je suis pas sûr de saisir l'utilité de ce pipe mais j'ai compris ce que représente un pipe et comment le créer
+    let valeurFinal: unknown;
+    if (value as number > 0)
+      valeurFinal = "+" + value;
+    else if (value as number === 0 || value as number < 0)
+      valeurFinal = value;
+    return valeurFinal;
   }
 
 }

@@ -17,4 +17,8 @@ export class ColleagueListComponent implements OnInit {
     this.allColleagues =  this.colleagueService.colleague;
    }
 
+   refresh(){
+    location.reload(); //petite triche ni vu ni connu (je vais changer ça)
+   }
+
 }

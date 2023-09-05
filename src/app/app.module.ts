@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from 'src/shared/shared.module';
 import { VotingModule } from 'src/Voting/voting.module';
+import { WelcomeModule } from 'src/pages/welcome/welcome.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { VotingModule } from 'src/Voting/voting.module';
     BrowserModule,
     NgbModule,
     SharedModule,
-    VotingModule
+    VotingModule,
+    WelcomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

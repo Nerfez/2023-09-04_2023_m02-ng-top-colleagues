@@ -1,4 +1,5 @@
 <label class="historique">Historique</label>
+<div class="t">
 <div class="vote-body" *ngFor="let vote of all_votes">
     <div class="vote-unique">
         <img [src]="vote.colleague.photo" alt="image">
@@ -8,4 +9,4 @@
             <button (click)="deleteVote(vote)">Supprimer</button>
         </div>
     </div>
-</div>
+</div></div>
