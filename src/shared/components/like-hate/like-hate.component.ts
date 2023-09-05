@@ -10,7 +10,7 @@ import { LikeHate } from 'src/models/like-hate';
 export class LikeHateComponent implements OnInit {
 
   @Input() colleague!: Colleague;
-  @Output() change:EventEmitter<number> = new EventEmitter<number>();
+  @Output() change:EventEmitter<string> = new EventEmitter<string>();
 
   like!: LikeHate.LIKE;
   hate!: LikeHate.HATE;
@@ -22,11 +22,11 @@ export class LikeHateComponent implements OnInit {
 
   evtLiking(like: LikeHate) {
     if (like === LikeHate.LIKE) {
-      //this.change.emit(+100);
-      this.colleague.score += 100;
+      this.change.emit('like');
+      //this.colleague.score += 100;
     } else if (like === LikeHate.HATE) {
-      //this.change.emit(-100);
-      this.colleague.score -= 100;
+      this.change.emit('hate');
+      //this.colleague.score -= 100;
     }
   }
 

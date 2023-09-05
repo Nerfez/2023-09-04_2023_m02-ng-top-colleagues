@@ -2,7 +2,7 @@
     <div class="top">
         <img [src]="colleague.photo" alt="image">
         <label class="pseudo">{{colleague.pseudo | uppercase}}</label>
-        <label class="score" (change)="traiter(colleague.score)">{{colleague.score}}</label>
+        <label class="score">{{colleague.score | score}}</label>
     </div>
-    <tc-like-hate [colleague]="colleague"></tc-like-hate>
+    <tc-like-hate [colleague]="colleague" (change)="traiter($event)"></tc-like-hate>
 </div>
