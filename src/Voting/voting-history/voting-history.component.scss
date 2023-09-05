@@ -1,0 +1,28 @@
+.historique {
+    border: 2px solid black;
+    width: 100%;
+}
+.vote-body {
+    border: 2px solid black;
+    width: 100%;
+}
+
+.vote-unique {
+    display: flex;
+
+    img {
+        width: 10em;
+        height: 10em;
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        padding-left: 1em;
+
+        button {
+            margin-bottom: 1em;
+            margin-top: auto;
+        }
+    }
+}

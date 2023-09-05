@@ -1,0 +1,11 @@
+<label class="historique">Historique</label>
+<div class="vote-body" *ngFor="let vote of all_votes">
+    <div class="vote-unique">
+        <img [src]="vote.colleague.photo" alt="image">
+        <div class="right">
+            <label>{{vote.colleague.pseudo}}</label>
+            <label>{{vote.colleague.pseudo}} est detesté, son score est de : {{ vote.colleague.score}}</label>
+            <button (click)="deleteVote(vote)">Supprimer</button>
+        </div>
+    </div>
+</div>
