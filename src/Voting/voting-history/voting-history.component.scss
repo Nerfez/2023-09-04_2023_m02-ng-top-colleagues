@@ -1,15 +1,16 @@
 .historique {
     border: 2px solid black;
-    width: 100%;
+    width: 30em;
 }
 
 .vote-body {
     border: 2px solid black;
-    width: 100%;
+    width: 30em;
 }
 
 .vote-unique {
     display: flex;
+    width: 30em;
 
     img {
         width: 10em;
@@ -21,14 +22,19 @@
         flex-direction: column;
         padding-left: 1em;
 
-        button {
+        a {
             margin-bottom: 1em;
             margin-top: auto;
+            color: blue;
+            text-decoration: underline;
+            &:hover{
+                cursor: pointer;
+            }
         }
     }
 }
 
 .t {
     overflow-y: scroll;
-    height: 65%;
+    height: 40em;
 }

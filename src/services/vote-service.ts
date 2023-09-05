@@ -31,6 +31,14 @@ export class VoteService {
   {
     colleague: this.colleagueService.colleague[5],
     vote: LikeHate.LIKE
+  },
+  {
+    colleague: this.colleagueService.colleague[6],
+    vote: LikeHate.LIKE
+  },
+  {
+    colleague: this.colleagueService.colleague[7],
+    vote: LikeHate.LIKE
   }
   ];
 
@@ -59,6 +67,14 @@ export class VoteService {
       },
       {
         colleague: this.colleagueService.colleague[5],
+        vote: LikeHate.LIKE
+      },
+      {
+        colleague: this.colleagueService.colleague[6],
+        vote: LikeHate.LIKE
+      },
+      {
+        colleague: this.colleagueService.colleague[7],
         vote: LikeHate.LIKE
       }
       ];
