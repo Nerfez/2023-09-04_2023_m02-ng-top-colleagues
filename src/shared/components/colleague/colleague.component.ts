@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Colleague } from 'src/models/colleague';
-import { ColleagueService } from 'src/services/colleague-service';
 
 @Component({
   selector: 'tc-colleague',
@@ -9,12 +8,13 @@ import { ColleagueService } from 'src/services/colleague-service';
 })
 export class ColleagueComponent implements OnInit {
 
-  col!: Colleague;
+  @Input() colleague!: Colleague;
 
-  constructor(private colleagueService: ColleagueService){}
+
+  constructor(){}
 
   ngOnInit(){
-   this.col =  this.colleagueService.colleague;
+    console.log("colleaguel: ", this.colleague)
   }
 
 }
