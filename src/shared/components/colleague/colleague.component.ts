@@ -10,11 +10,14 @@ export class ColleagueComponent implements OnInit {
 
   @Input() colleague!: Colleague;
 
-
   constructor(){}
 
   ngOnInit(){
-    console.log("colleaguel: ", this.colleague)
   }
+
+  traiter(val: number) {
+    console.log("valeur: ", val);
+    this.colleague.score = val;
+    }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Colleague } from 'src/models/colleague';
 import { LikeHate } from 'src/models/like-hate';
 
@@ -10,6 +10,7 @@ import { LikeHate } from 'src/models/like-hate';
 export class LikeHateComponent implements OnInit {
 
   @Input() colleague!: Colleague;
+  @Output() change:EventEmitter<number> = new EventEmitter<number>();
 
   like!: LikeHate.LIKE;
   hate!: LikeHate.HATE;
@@ -21,8 +22,10 @@ export class LikeHateComponent implements OnInit {
 
   evtLiking(like: LikeHate) {
     if (like === LikeHate.LIKE) {
+      //this.change.emit(+100);
       this.colleague.score += 100;
     } else if (like === LikeHate.HATE) {
+      //this.change.emit(-100);
       this.colleague.score -= 100;
     }
   }
