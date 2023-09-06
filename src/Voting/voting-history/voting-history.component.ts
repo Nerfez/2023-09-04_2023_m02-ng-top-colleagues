@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Vote } from 'src/models/vote';
+import { VoteService } from 'src/services/vote-service';
 
 @Component({
   selector: 'tc-voting-history',
@@ -10,13 +11,10 @@ export class VotingHistoryComponent {
 
   @Input() all_votes!: Vote[];
 
-  constructor() { };
+  constructor(private voteService: VoteService) { };
 
   deleteVote(vote: Vote) {
-    const index: number = this.all_votes.indexOf(vote);
-    if (index !== -1) {
-      this.all_votes.splice(index, 1);
-    }
+    this.voteService.delete(vote);
   }
 
 }

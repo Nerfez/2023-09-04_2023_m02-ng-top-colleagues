@@ -94,4 +94,15 @@ export class ColleagueService {
         ];
     }
 
+    ajouter(colleague: Colleague) {
+        this.colleague.push(colleague);
+    }
+
+    delete(colleague: Colleague) {
+        const index: number = this.colleague.indexOf(colleague);
+        if (index !== -1) {
+            this.colleague.splice(index, 1);
+        }
+    }
+
 }

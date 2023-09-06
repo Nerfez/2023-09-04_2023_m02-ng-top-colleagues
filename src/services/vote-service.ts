@@ -44,40 +44,51 @@ export class VoteService {
 
   constructor(private colleagueService: ColleagueService) { }
 
-  refresh(){
+  refresh() {
     this.vote = [{
-        colleague: this.colleagueService.colleague[0],
-        vote: LikeHate.LIKE
-      },
-      {
-        colleague: this.colleagueService.colleague[1],
-        vote: LikeHate.LIKE
-      },
-      {
-        colleague: this.colleagueService.colleague[2],
-        vote: LikeHate.LIKE
-      },
-      {
-        colleague: this.colleagueService.colleague[3],
-        vote: LikeHate.LIKE
-      },
-      {
-        colleague: this.colleagueService.colleague[4],
-        vote: LikeHate.LIKE
-      },
-      {
-        colleague: this.colleagueService.colleague[5],
-        vote: LikeHate.LIKE
-      },
-      {
-        colleague: this.colleagueService.colleague[6],
-        vote: LikeHate.LIKE
-      },
-      {
-        colleague: this.colleagueService.colleague[7],
-        vote: LikeHate.LIKE
-      }
-      ];
+      colleague: this.colleagueService.colleague[0],
+      vote: LikeHate.LIKE
+    },
+    {
+      colleague: this.colleagueService.colleague[1],
+      vote: LikeHate.LIKE
+    },
+    {
+      colleague: this.colleagueService.colleague[2],
+      vote: LikeHate.LIKE
+    },
+    {
+      colleague: this.colleagueService.colleague[3],
+      vote: LikeHate.LIKE
+    },
+    {
+      colleague: this.colleagueService.colleague[4],
+      vote: LikeHate.LIKE
+    },
+    {
+      colleague: this.colleagueService.colleague[5],
+      vote: LikeHate.LIKE
+    },
+    {
+      colleague: this.colleagueService.colleague[6],
+      vote: LikeHate.LIKE
+    },
+    {
+      colleague: this.colleagueService.colleague[7],
+      vote: LikeHate.LIKE
+    }
+    ];
+  }
+
+  ajouter(vote: Vote) {
+    this.vote.push(vote);
+  }
+
+  delete(vote: Vote){
+    const index: number = this.vote.indexOf(vote);
+    if (index !== -1) {
+      this.vote.splice(index, 1);
+    }
   }
 
 }
