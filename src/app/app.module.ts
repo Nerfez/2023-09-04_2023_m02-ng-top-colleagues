@@ -7,6 +7,7 @@ import { SharedModule } from 'src/shared/shared.module';
 import { VotingModule } from 'src/Voting/voting.module';
 import { WelcomeModule } from 'src/pages/welcome/welcome.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     VotingModule,
     WelcomeModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

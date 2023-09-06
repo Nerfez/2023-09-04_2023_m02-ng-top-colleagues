@@ -4,23 +4,26 @@ import { LikeHateComponent } from '../shared/components/like-hate/like-hate.comp
 import { ColleagueComponent } from '../shared/components/colleague/colleague.component';
 import { ColleagueListComponent } from '../shared/components/colleague-list/colleague-list.component';
 import { ScorePipe } from '../shared/pipes/score.pipe';
-
-
+import { CounterComponent } from './components/counter/counter.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     LikeHateComponent,
     ColleagueComponent,
     ColleagueListComponent,
-    ScorePipe
+    ScorePipe,
+    CounterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatIconModule 
   ],
   exports:[
     LikeHateComponent,
     ColleagueComponent,
-    ColleagueListComponent
+    ColleagueListComponent,
+    CounterComponent
   ]
 })
 export class SharedModule { }
