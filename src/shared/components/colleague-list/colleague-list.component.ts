@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Colleague } from 'src/models/colleague';
 
 @Component({
@@ -8,7 +9,7 @@ import { Colleague } from 'src/models/colleague';
 })
 export class ColleagueListComponent {
 
-  @Input() allColleagues!: Colleague[];
+  @Input() allColleagues$!: Observable<Colleague[]>;
 
   constructor(){}
 

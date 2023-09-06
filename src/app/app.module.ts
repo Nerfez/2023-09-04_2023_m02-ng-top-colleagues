@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from 'src/shared/shared.module';
 import { VotingModule } from 'src/Voting/voting.module';
 import { WelcomeModule } from 'src/pages/welcome/welcome.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { WelcomeModule } from 'src/pages/welcome/welcome.module';
     NgbModule,
     SharedModule,
     VotingModule,
-    WelcomeModule
+    WelcomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

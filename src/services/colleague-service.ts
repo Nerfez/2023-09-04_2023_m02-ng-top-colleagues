@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Colleague } from 'src/models/colleague';
 
 @Injectable({
@@ -48,7 +50,7 @@ export class ColleagueService {
     }
     ];
 
-    constructor() { }
+    constructor(private http: HttpClient) { }
 
     refresh() {
         this.colleague = [{
@@ -103,6 +105,18 @@ export class ColleagueService {
         if (index !== -1) {
             this.colleague.splice(index, 1);
         }
+    }
+
+    getAllColleagueFromDB(): Observable<Colleague[]> {
+        return this.http.get<Colleague[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues');
+    }
+
+    addColleagueFromDB(colleague: Colleague): Observable<Colleague[]> {
+        return this.http.post<Colleague[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues', colleague);
+    }
+
+    getColleagueFromDBByPseudo(colleaguePseudo: string): Observable<Colleague[]> {
+        return this.http.get<Colleague[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues/'+colleaguePseudo);
     }
 
 }

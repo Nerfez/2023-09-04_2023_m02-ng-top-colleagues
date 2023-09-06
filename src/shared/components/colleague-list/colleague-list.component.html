@@ -1,5 +1,5 @@
 <div class="all-colleagues-group">
-    <div class="colleagues" *ngFor="let colleague of allColleagues">
+    <div class="colleagues" *ngFor="let colleague of allColleagues$ | async">
         <tc-colleague [colleague]="colleague"></tc-colleague>
     </div>
 </div>
