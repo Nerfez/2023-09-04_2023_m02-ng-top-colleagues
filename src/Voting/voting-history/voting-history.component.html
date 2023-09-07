@@ -5,7 +5,8 @@
         <img [src]="vote.colleague.photo" alt="image">
         <div class="right">
             <label>{{vote.colleague.pseudo}}</label>
-            <label>{{vote.colleague.pseudo}} est detesté, son score est de : {{ vote.colleague.score}}</label>
+            <label *ngIf="isLiked(vote)">{{vote.colleague.pseudo}} est aimé, son score est de : {{ vote.colleague.score}} :D</label>
+            <label *ngIf="!isLiked(vote)">{{vote.colleague.pseudo}} est detesté, son score est de : {{ vote.colleague.score}} :(</label>
             <a (click)="deleteVote(vote)">Supprimer</a>
         </div>
     </div>

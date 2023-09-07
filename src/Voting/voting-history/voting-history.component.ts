@@ -11,7 +11,7 @@ import { VoteService } from 'src/services/vote-service';
   templateUrl: './voting-history.component.html',
   styleUrls: ['./voting-history.component.scss']
 })
-export class VotingHistoryComponent implements OnInit{
+export class VotingHistoryComponent implements OnInit {
 
   @Input() all_votes$!: Observable<Vote[]>;
   //@Input() all_votes!: Vote[];
@@ -19,7 +19,7 @@ export class VotingHistoryComponent implements OnInit{
   pseudoAll!: string[];
 
   constructor(private voteService: VoteService, private colleagueService: ColleagueService) { }
-  
+
   ngOnInit(): void {
     this.pseudoAll = new Array;
     this.colleagueService.getAllColleagueFromDB().pipe(
@@ -27,8 +27,15 @@ export class VotingHistoryComponent implements OnInit{
     ).subscribe(colleague => {
       this.pseudoAll.push(colleague.pseudo);
     });
+  };
+
+  isLiked(vote: Vote) {
+    if(vote.like_hate === "LIKE"){
+      return true;
+    } else{
+      return false;
+    }
   }
-;
 
   deleteVote(new_vote: Vote) {
     let index: number = 0;
@@ -51,7 +58,7 @@ export class VotingHistoryComponent implements OnInit{
   addVote() {
     const randomPseudo = Math.floor(Math.random() * this.pseudoAll.length);
     let like_hate!: LikeHate.LIKE | LikeHate.HATE;
-    if(randomPseudo <= 5){
+    if (randomPseudo <= 5) {
       like_hate = LikeHate.HATE;
     } else {
       like_hate = LikeHate.LIKE;
