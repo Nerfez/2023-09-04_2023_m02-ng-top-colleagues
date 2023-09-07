@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, map } from 'rxjs';
 import { Colleague } from 'src/models/colleague';
+import { ColleagueService } from 'src/services/colleague-service';
 
 @Component({
   selector: 'tc-colleague',
@@ -10,7 +13,7 @@ export class ColleagueComponent implements OnInit {
 
   @Input() colleague!: Colleague;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }

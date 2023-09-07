@@ -6,6 +6,8 @@ import { ColleagueListComponent } from '../shared/components/colleague-list/coll
 import { ScorePipe } from '../shared/pipes/score.pipe';
 import { CounterComponent } from './components/counter/counter.component';
 import {MatIconModule} from '@angular/material/icon';
+import { SingleColleagueComponent } from 'src/app/shared/components/single-colleague/single-colleague.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -13,17 +15,20 @@ import {MatIconModule} from '@angular/material/icon';
     ColleagueComponent,
     ColleagueListComponent,
     ScorePipe,
-    CounterComponent
+    CounterComponent,
+    SingleColleagueComponent
   ],
   imports: [
     CommonModule,
-    MatIconModule 
+    MatIconModule,
+    AppRoutingModule 
   ],
   exports:[
     LikeHateComponent,
     ColleagueComponent,
     ColleagueListComponent,
-    CounterComponent
+    CounterComponent,
+    SingleColleagueComponent
   ]
 })
 export class SharedModule { }

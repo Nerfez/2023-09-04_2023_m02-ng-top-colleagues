@@ -19,7 +19,7 @@ export class PseudoValidatorDirective implements AsyncValidator {
     this.colleagueService.getAllColleagueFromDB().pipe(
       concatMap(colleagues => colleagues)
     ).subscribe(colleague => {
-      if (colleague.pseudo === control.value.pseudo) {
+      if (colleague.pseudo === control.value) {
         valid = Observable<ValidationErrors>;
       }
     })

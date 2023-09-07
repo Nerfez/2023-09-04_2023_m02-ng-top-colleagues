@@ -10,11 +10,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { CreateColleagueModule } from './pages/create-colleague.module';
 import { PseudoValidatorDirective } from './shared/validators/pseudo-validator.directive';
+import { MenuComponent } from './navbar/menu/menu.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PseudoValidatorDirective
+    PseudoValidatorDirective,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { PseudoValidatorDirective } from './shared/validators/pseudo-validator.d
     WelcomeModule,
     HttpClientModule,
     MatIconModule,
-    CreateColleagueModule
+    CreateColleagueModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

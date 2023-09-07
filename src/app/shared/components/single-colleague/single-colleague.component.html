@@ -1,8 +1,9 @@
 <div class="colleague-group">
     <div class="top">
-        <a routerLink="/colleagues/{{colleague.pseudo}}"><img [src]="colleague.photo" alt="image"></a>
+        <img [src]="colleague.photo" alt="image">
         <label class="pseudo">{{colleague.pseudo | uppercase}}</label>
         <label class="score">{{colleague.score | score}}</label>
     </div>
-    <tc-like-hate [colleague]="colleague" (change)="traiter($event)"></tc-like-hate>
+    <label class="pseudo">Prenom: {{colleague.first | uppercase}}</label>
+    <label class="pseudo">Nom: {{colleague.last | uppercase}}</label>
 </div>
