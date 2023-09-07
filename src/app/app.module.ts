@@ -8,10 +8,13 @@ import { VotingModule } from 'src/Voting/voting.module';
 import { WelcomeModule } from 'src/pages/welcome/welcome.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
+import { CreateColleagueModule } from './pages/create-colleague.module';
+import { PseudoValidatorDirective } from './shared/validators/pseudo-validator.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PseudoValidatorDirective
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
     VotingModule,
     WelcomeModule,
     HttpClientModule,
-    MatIconModule 
+    MatIconModule,
+    CreateColleagueModule
   ],
   providers: [],
   bootstrap: [AppComponent]

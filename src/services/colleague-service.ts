@@ -117,8 +117,24 @@ export class ColleagueService {
         return this.http.post<Colleague[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues', colleague);
     }
 
+    updateColleagueFromDB(colleague: Colleague, colleagueId: number): Observable<Colleague> {
+        return this.http.put<Colleague>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues/'+colleagueId, colleague);
+    }
+
     getColleagueFromDBByPseudo(colleaguePseudo: string): Observable<Colleague[]> {
         return this.http.get<Colleague[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues/'+colleaguePseudo);
     }
+
+    deleteVoteFromDB(colleagueId: number) {
+        this.http.delete('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues/' + colleagueId)
+          .subscribe({
+            next: data => {
+              console.log('Suppression OK');
+            },
+            error: error => {
+              console.error('Erreur :', error);
+            }
+          });
+      }
 
 }
