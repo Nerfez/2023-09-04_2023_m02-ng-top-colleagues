@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ColleagueService } from 'src/services/colleague-service';
 
 @Component({
@@ -12,7 +13,8 @@ export class CreateColleagueFormsComponent implements OnInit {
   colleagueForm!: FormGroup;
   urlRegex!: RegExp;
 
-  constructor(private formBuilder: FormBuilder, private colleagueService: ColleagueService) { }
+  constructor(private formBuilder: FormBuilder, private colleagueService: ColleagueService,
+    private route: Router) { }
 
   ngOnInit(): void {
     this.urlRegex = /^[a-zA-Z0-9]+$/;
@@ -26,7 +28,7 @@ export class CreateColleagueFormsComponent implements OnInit {
   }
   onSubmitForm() {
     this.colleagueService.addColleagueFromDB(this.colleagueForm.value).subscribe(new_col => {
-      console.log("ajout col: ", new_col)
+      this.route.navigateByUrl('');
     });
   }
 }
