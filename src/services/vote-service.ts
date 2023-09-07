@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Vote } from 'src/models/vote';
 import { ColleagueService } from './colleague-service';
 import { LikeHate } from 'src/models/like-hate';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -98,12 +98,17 @@ export class VoteService {
   }
 
   addVoteFromDB(vote: Vote): Observable<Vote[]> {
-    return this.http.post<Vote[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes', vote);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    return this.http.post<Vote[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes', vote, httpOptions);
   }
 
   // J'utilise pas la méthode pour pas compromettre les données dans la bdd
-  deleteVoteFromDB(vote: Vote) {
-    this.http.delete('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes/'+vote)
+  deleteVoteFromDB(voteId: number) {
+    this.http.delete('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes/' + voteId)
       .subscribe({
         next: data => {
           console.log('Suppression OK');

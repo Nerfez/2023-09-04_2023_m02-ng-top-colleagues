@@ -1,6 +1,6 @@
 <label class="historique">Historique</label>
 <div class="t">
-<div class="vote-body" *ngFor="let vote of all_votes">
+<div class="vote-body" *ngFor="let vote of all_votes$ | async">
     <div class="vote-unique">
         <img [src]="vote.colleague.photo" alt="image">
         <div class="right">
@@ -11,3 +11,5 @@
     </div>
 </div>
 </div>
+
+<button (click)="addVote()">Ajouter vote</button>
