@@ -1,0 +1,13 @@
+form {
+    width: 20em;
+
+    .form-group {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1em;
+    }
+
+    .action-buttons {
+        margin-left: 70%;
+    }
+}

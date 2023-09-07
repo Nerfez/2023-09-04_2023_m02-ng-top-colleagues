@@ -1,26 +1,26 @@
 <h1>Création colleague</h1>
-<form [formGroup]="colleagueForm">
+<form tcFirstLastValidator>
     <div class="form-group">
       <label for="pseudo">Pseudo</label>
-      <input id="pseudo" type="text" formControlName="pseudo">
+      <input #pseudo tcPseudoValidator id="pseudo" type="text">
     </div>
     <div class="form-group">
         <label for="first">Prenom</label>
-        <input id="first" type="text" formControlName="first">
+        <input #first id="first" type="text">
       </div>
       <div class="form-group">
         <label for="last">Nom</label>
-        <input id="last" type="text" formControlName="last">
+        <input #last id="last" type="text">
       </div>
     <div class="form-group">
       <label for="score">Score</label>
-      <input id="score" type="number" formControlName="score">
+      <input #score id="score" type="number">
     </div>
     <div class="form-group">
       <label for="photo">Photo URL</label>
-      <input id="photo" type="text" formControlName="photo">
+      <input #url id="photo" type="text">
     </div>
     <div class="action-buttons">
-        <button type="submit" (click)="onSubmitForm()" [disabled]="colleagueForm.invalid">Enregistrer</button>
+        <button type="submit" (click)="ajouter()" *ngIf="afficherButton()">Enregistrer</button>
       </div>
   </form>

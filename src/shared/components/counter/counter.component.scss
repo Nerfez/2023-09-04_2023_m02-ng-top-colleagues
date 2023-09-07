@@ -3,6 +3,9 @@ mat-icon {
     margin-left: 1em;
     margin-right: 1em;
 }
+p {
+    margin-right: 1em;
+}
 
 label {
     display: flex;
@@ -10,5 +13,7 @@ label {
 }
 
 .like-group {
+    margin-top: 1em;
     display: flex;
+    align-items: center;
 }
