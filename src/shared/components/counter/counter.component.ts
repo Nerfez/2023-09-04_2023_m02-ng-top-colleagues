@@ -30,9 +30,9 @@ export class CounterComponent implements OnDestroy {
     ).subscribe(
       (vote) => {
         if (vote.like_hate === 'LIKE')
-          this.dislikeNb++;
-        else if (vote.like_hate === 'HATE')
           this.likeNb++;
+        else if (vote.like_hate === 'HATE')
+          this.dislikeNb++;
       });
   }
   ngOnDestroy() {

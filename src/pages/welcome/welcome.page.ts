@@ -26,10 +26,9 @@ export class WelcomePage implements OnInit {
   }
 
   refresh() {
-    this.allColleagues$ = this.colleagueService.getAllColleagueFromDB();
-    this.voteService.refresh();
-    this.all_votes$ = this.voteService.getAllVoteFromDB();
-
+    // this.allColleagues$ = this.colleagueService.getAllColleagueFromDB();
+    // this.all_votes$ = this.voteService.getAllVoteFromDB();
+    location.reload();
     //this.all_votes = this.voteService.vote;
   }
 
