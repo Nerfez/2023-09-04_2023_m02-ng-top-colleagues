@@ -8,7 +8,8 @@ import { LandingComponent } from './auth/landing/landing.component';
 import { AuthGuard } from './auth/auth.guards';
 
 const routes: Routes = [
-  { path: '', component: LandingComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  { path: 'login', component: LandingComponent },
   { path: 'colleagues', component: WelcomePage, canActivate: [AuthGuard] },
   { path: 'colleagues/:pseudo', component: SingleColleagueComponent, canActivate: [AuthGuard] },
   { path: 'form-template', component: CreateColleagueOtherFormComponent, canActivate: [AuthGuard] },

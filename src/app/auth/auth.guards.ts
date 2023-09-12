@@ -7,12 +7,10 @@ import { AuthService } from 'src/services/auth-service';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private auth: AuthService,
-              private router: Router) {}
+  constructor(private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const user = this.auth.loggedIn;
-    if (user) {
+    if (window.localStorage.getItem('jwt')) {
       return true;
     } else {
       this.router.navigateByUrl('');

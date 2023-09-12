@@ -7,25 +7,18 @@ export class AuthService {
 
     constructor() { }
 
-    login(username: string, password: string): boolean {
-        if (username !== null && password != null) {
-            localStorage.setItem('currentUser', username);
-            return true;
-        }
-        return false;
-    }
-
     logout() {
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem('pseudo');
+        localStorage.removeItem('jwt');
     }
 
     public get loggedIn(): boolean {
-        return (localStorage.getItem('currentUser') !== null);
+        return (localStorage.getItem('pseudo') !== null);
     }
 
     getPseudo(): string | null {
-        if (localStorage.getItem('currentUser') != null)
-            return (localStorage.getItem('currentUser'));
+        if (localStorage.getItem('pseudo') != null)
+            return (localStorage.getItem('pseudo'));
         else {
             return '';
         }

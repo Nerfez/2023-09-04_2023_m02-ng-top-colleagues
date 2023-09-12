@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav *ngIf="isConnected()" class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Container wrapper -->
     <div class="container-fluid">
         <label class="navbar-brand">{{pseudo}}</label>
@@ -10,7 +10,7 @@
         <!-- Navbar Accueil -->
         <a class="navbar-brand" routerLink="form-reactive">form reactive</a>
 
-        <button class="navbar-brand" (click)="deconnexion()">se déconnecter</button>
+        <button *ngIf="isConnected()" class="navbar-brand" (click)="deconnexion()">se déconnecter</button>
     </div>
     <!-- Container wrapper -->
 </nav>

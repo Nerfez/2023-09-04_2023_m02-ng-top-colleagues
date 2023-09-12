@@ -22,6 +22,7 @@ export class MenuComponent implements OnInit{
   }
 
   deconnexion(){
+    this.pseudo = "";
     this.auth.logout();
     this.router.navigateByUrl('');
   }
