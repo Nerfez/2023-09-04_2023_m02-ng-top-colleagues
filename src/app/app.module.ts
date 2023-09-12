@@ -12,12 +12,15 @@ import { CreateColleagueModule } from './pages/create-colleague.module';
 import { PseudoValidatorDirective } from './shared/validators/pseudo-validator.directive';
 import { MenuComponent } from './navbar/menu/menu.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LandingComponent } from './auth/landing/landing.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     PseudoValidatorDirective,
-    MenuComponent
+    MenuComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,9 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     MatIconModule,
     CreateColleagueModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
