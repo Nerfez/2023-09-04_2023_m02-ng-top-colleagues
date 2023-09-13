@@ -8,6 +8,8 @@ import { Colleague } from 'src/models/colleague';
 })
 export class ColleagueService {
 
+    api = "https://app-005f27d8-9033-48cc-ba69-b798464dee52.cleverapps.io/api/v2/";
+
     colleague: Colleague[] = [{
         score: 100,
         photo: 'https://i.pinimg.com/736x/02/df/12/02df120ca27f1b4e5109ef0f7e3e2865.jpg',
@@ -110,23 +112,23 @@ export class ColleagueService {
     }
 
     getAllColleagueFromDB(): Observable<Colleague[]> {
-        return this.http.get<Colleague[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues');
+        return this.http.get<Colleague[]>(this.api+'colleagues');
     }
 
     addColleagueFromDB(colleague: Colleague): Observable<Colleague[]> {
-        return this.http.post<Colleague[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues', colleague);
+        return this.http.post<Colleague[]>(this.api+'colleagues', colleague);
     }
 
     updateColleagueFromDB(colleague: Colleague, colleagueId: number): Observable<Colleague> {
-        return this.http.put<Colleague>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues/'+colleagueId, colleague);
+        return this.http.put<Colleague>(this.api+'colleagues/'+colleagueId, colleague);
     }
 
     getColleagueFromDBByPseudo(colleaguePseudo: string): Observable<Colleague> {
-        return this.http.get<Colleague>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues/'+colleaguePseudo);
+        return this.http.get<Colleague>(this.api+'colleagues/'+colleaguePseudo);
     }
 
     deleteVoteFromDB(colleagueId: number) {
-        this.http.delete('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues/' + colleagueId)
+        this.http.delete(this.api+'colleagues/' + colleagueId)
           .subscribe({
             next: data => {
               console.log('Suppression OK');

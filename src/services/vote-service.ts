@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class VoteService {
 
+  api = "https://app-005f27d8-9033-48cc-ba69-b798464dee52.cleverapps.io/api/v2/";
+
   vote: Vote[] = [{
     colleague: this.colleagueService.colleague[0],
     vote: LikeHate.LIKE
@@ -94,7 +96,7 @@ export class VoteService {
   }
 
   getAllVoteFromDB(): Observable<Vote[]> {
-    return this.http.get<Vote[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes');
+    return this.http.get<Vote[]>(this.api + 'votes');
   }
 
   addVoteFromDB(vote: Vote): Observable<Vote[]> {
@@ -103,12 +105,12 @@ export class VoteService {
         "Content-Type": "application/json"
       })
     };
-    return this.http.post<Vote[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes', vote, httpOptions);
+    return this.http.post<Vote[]>(this.api + 'votes', vote, httpOptions);
   }
 
   // J'utilise pas la méthode pour pas compromettre les données dans la bdd
   deleteVoteFromDB(voteId: number) {
-    this.http.delete('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes/' + voteId)
+    this.http.delete(this.api + 'votes/' + voteId)
       .subscribe({
         next: data => {
           console.log('Suppression OK');
